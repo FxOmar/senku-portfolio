@@ -1,8 +1,6 @@
 import { LitElement, html } from 'lit-element'
 import head from 'head'
-// import "assets/css/bootstrap.min.css"
-// import "assets/css/bootstrap-theme.min.css"
-// import "assets/css/font-awesome.min.css"
+
 import 'assets/css/main.css'
 
 import 'components/HelloWorld';
