@@ -36,7 +36,6 @@ const config = {
     contentBase: __dirname + '/public',
     compress: true,
     port: 9000,
-    // open: true,
     stats: {
         assets: false,
         children: false,
