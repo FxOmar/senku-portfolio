@@ -1,27 +1,13 @@
-import { LitElement, html } from 'lit-element'
-
 import 'assets/css/main.css'
-
-import 'components/HelloWorld';
-
-class App extends LitElement {
-    render() {
-        return html`
-        <hello-world></hello-woeld>`;
-    }
-    
-    createRenderRoot() {
-        /**
-         * Render template without shadow DOM. Note that shadow DOM features like
-         * encapsulated CSS and slots are unavailable.
-         */
-        return this;
-    }
-}
-
-customElements.define('my-app', App)
-
 import head from 'head'
+import { html, render } from 'lit-html';
+
+
+// 
+
+import 'App'
+
+// 
 function setHeader () {
     if ((Object.keys(head).length === 0 && head.constructor === Object)) {
         return
@@ -47,21 +33,9 @@ function setHeader () {
     }
 }
 
-function render (tag, id) {
-    const app = document.createElement('div')
+setHeader()
+const template = () => html`<my-app></my-app>`
 
-    app.classList = 'app'
-    app.innerHTML = tag
-
-    if (!id) {
-        document.body.appendChild(app);
-    } else {
-        document.getElementById(id).appendChild(app)
-    }
-    setHeader()
-}
-
-render('<my-app></my-app>')
-
-
+// Render the template to the document
+render(template(), document.body);
 
