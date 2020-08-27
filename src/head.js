@@ -7,10 +7,6 @@ export default {
         {
             href:"https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700", 
             rel:"stylesheet"
-        },
-        {
-            href:"https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700", 
-            rel:"stylesheet"
         }
     ],
     meta: [
@@ -23,4 +19,5 @@ export default {
     script: [
         { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.js', async: true, defer: true }
     ],
+    title: ["My website"]
 }

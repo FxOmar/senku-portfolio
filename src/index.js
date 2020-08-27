@@ -1,6 +1,8 @@
 import 'assets/css/main.css'
 import head from 'head'
 import { html, render } from 'lit-html';
+import {cache} from 'lit-html/directives/cache.js';
+
 
 
 // 
@@ -15,23 +17,24 @@ function setHeader () {
         const frag = document.createDocumentFragment()
     
         Object.keys(head).forEach((tag) => {
-    
             head[tag].forEach((prop) => {
                 const createTages = document.createElement(tag)
-    
-                const selector = Object.entries(prop)[0]
-    
-                if (document.querySelectorAll(`${tag}[${selector[0]}="${selector[1]}"]`).length < 1) {
-                    for (let [key, value] of Object.entries(prop)){
+
+                if ((typeof prop) === 'string') {
+                    createTages.innerText = prop
+                } else {
+                    for (const [key, value] of Object.entries(prop)){
                         createTages.setAttribute(key, value)
-                        frag.appendChild(createTages)
                     }
                 }
+                frag.appendChild(createTages)
             })
         })
-        document.head.appendChild(frag)
+        const header = () => html`${cache(frag)}`
+        render(header(), document.head)
     }
 }
+
 
 setHeader()
 const template = () => html`<my-app></my-app>`
